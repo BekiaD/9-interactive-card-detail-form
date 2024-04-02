@@ -7,54 +7,85 @@
 const cardName = document.querySelector('.card-name')
 const cardNamePlaceholder = document.querySelector('.card-name-placeholder')
 
-cardName.addEventListener('keyup', () => {
-    cardNamePlaceholder.textContent = cardName.value
-    if (cardNamePlaceholder.textContent === '') {
-        cardNamePlaceholder.textContent = 'Jane Appleseed'
-    }
-})
-
 const cardNumber = document.querySelector('.card-number')
 const cardNumberPlaceholder = document.querySelector('.card-number-placeholder')
 
-cardNumber.addEventListener('keyup', () => {
-    cardNumberPlaceholder.textContent = cardNumber.value
-    if (cardNumberPlaceholder.textContent === '') {
-        cardNumberPlaceholder.textContent = '1234 5678 9123 0000'
-    }
-})
-
 const expiryDateMonth = document.querySelector('.expiry-date-month')
-const expiryMonthPlaceholder = document.querySelector('.expiry-month-placeholder')
-
-expiryDateMonth.addEventListener('keyup', () => {
-    expiryMonthPlaceholder.textContent = expiryDateMonth.value
-    if (expiryMonthPlaceholder.textContent === '') {
-        expiryMonthPlaceholder.textContent = '00'
-    }
-})
+const expiryDateMonthPlaceholder = document.querySelector('.expiry-month-placeholder')
 
 const expiryDateYear = document.querySelector('.expiry-date-year')
-const expiryYearPlaceholder = document.querySelector('.expiry-year-placeholder')
-
-expiryDateYear.addEventListener('keyup', () => {
-    expiryYearPlaceholder.textContent = expiryDateYear.value
-    if (expiryYearPlaceholder.textContent === '') {
-        expiryYearPlaceholder.textContent = '00'
-    }
-})
+const expiryDateYearPlaceholder = document.querySelector('.expiry-year-placeholder')
 
 const cvc = document.querySelector('.cvc')
 const cvcPlaceholder = document.querySelector('.cvc-placeholder')
 
-cvc.addEventListener('keyup', () => {
-    cvcPlaceholder.textContent = cvc.value
-    if (cvcPlaceholder.textContent === '') {
-        cvcPlaceholder.textContent = '000'
-    }
-})
 
-const button = document.getElementById('button')
-button.addEventListener("click", function(event){
-    event.preventDefault()  
-})
+
+
+const fillIn = function (item, placeholder, itemdefault) {
+    item.addEventListener('keyup', () => {
+        placeholder.textContent = item.value
+        if (placeholder.textContent === '') {
+            placeholder.textContent = itemdefault
+        }
+    })
+}
+
+fillIn(cardName, cardNamePlaceholder, 'Jane Appleseed')
+fillIn(cardNumber, cardNumberPlaceholder, '0000 0000 0000 0000')
+fillIn(expiryDateMonth, expiryDateMonthPlaceholder, '00')
+fillIn(expiryDateYear, expiryDateYearPlaceholder, '00')
+fillIn(cvc, cvcPlaceholder, '000')
+
+
+
+// const button = document.getElementById('button')
+// button.addEventListener("click", function (event) {
+//     event.preventDefault()
+// })
+
+
+
+
+
+
+// REFACTORED CODE
+// cardName.addEventListener('keyup', () => {
+//     cardNamePlaceholder.textContent = cardName.value
+//     if (cardNamePlaceholder.textContent === '') {
+//         cardNamePlaceholder.textContent = 'Jane Appleseed'
+//     }
+// })
+
+
+// cardNumber.addEventListener('keyup', () => {
+//     cardNumberPlaceholder.textContent = cardNumber.value
+//     if (cardNumberPlaceholder.textContent === '') {
+//         cardNumberPlaceholder.textContent = '1234 5678 9123 0000'
+//     }
+// })
+
+
+// expiryDateMonth.addEventListener('keyup', () => {
+//     expiryMonthPlaceholder.textContent = expiryDateMonth.value
+//     if (expiryMonthPlaceholder.textContent === '') {
+//         expiryMonthPlaceholder.textContent = '00'
+//     }
+// })
+
+
+// expiryDateYear.addEventListener('keyup', () => {
+//     expiryYearPlaceholder.textContent = expiryDateYear.value
+//     if (expiryYearPlaceholder.textContent === '') {
+//         expiryYearPlaceholder.textContent = '00'
+//     }
+// })
+
+
+// cvc.addEventListener('keyup', () => {
+//     cvcPlaceholder.textContent = cvc.value
+//     if (cvcPlaceholder.textContent === '') {
+//         cvcPlaceholder.textContent = '000'
+//     }
+// })
+
