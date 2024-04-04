@@ -64,20 +64,6 @@ const isBlank = function (arr) {
     return wasThereBlank
 }
 
-
-// const wrongFormat = function (arr) {
-//     console.log('getting called')
-//     for (let cardinput of arr) {
-//         if (!cardinput.value.match(/^\d+$/)) {
-//             let span = document.createElement('span')
-//             span.classList.add('error-msg')
-//             span.textContent = "Enter numbers only"
-//             insertAfter(cardinput, span)
-//         }
-//     }
-// }
-
-
 const numsCheck = function () {
     let isError = false
     if (bankNums()) {
@@ -147,6 +133,19 @@ fillIn(cvc, cvcPlaceholder, '000')
 
 
 // REFACTORED CODE
+
+// const wrongFormat = function (arr) {
+//     console.log('getting called')
+//     for (let cardinput of arr) {
+//         if (!cardinput.value.match(/^\d+$/)) {
+//             let span = document.createElement('span')
+//             span.classList.add('error-msg')
+//             span.textContent = "Enter numbers only"
+//             insertAfter(cardinput, span)
+//         }
+//     }
+// }
+
 // cardName.addEventListener('keyup', () => {
 //     cardNamePlaceholder.textContent = cardName.value
 //     if (cardNamePlaceholder.textContent === '') {
