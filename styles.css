@@ -243,18 +243,18 @@ input:focus {
     }
 
     #card-back {
-        top: 22rem;
+        top: 26rem;
         left: 13rem
     }
 
     #card-front {
-        bottom: 11.5rem;
+        bottom: 8.5rem;
         left: 12rem;
     }
 
     .cvc-placeholder {
         position: relative;
-        top: -2rem;
+        top: -2.5rem;
         left: 16rem;
         font-size: 0.9rem;
         letter-spacing: 0.1rem;
@@ -272,7 +272,7 @@ input:focus {
     }
 
     .name-exp {
-        bottom: 28.6rem;
+        bottom: 24.6rem;
         left: 10rem;
         margin-left: 1rem
     }
