@@ -26,7 +26,12 @@ Users should be able to:
 
 
 ### Screenshot
-
+Page
+![Page](https://i.imgur.com/wOVFOC7.png)
+Success
+![Success](https://i.imgur.com/WhtinQl.png)
+Error
+![Error](https://i.imgur.com/f0HLP3V.png)
 
 ### Links
 - [Live site](https://guileless-sprinkles-3ff2ef.netlify.app/)
