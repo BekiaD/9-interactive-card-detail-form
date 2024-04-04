@@ -27,6 +27,8 @@ Users should be able to:
 
 ### Screenshot
 
+[Page] (https://i.imgur.com/wOVFOC7.png)
+
 
 ### Links
 - [Live site](https://guileless-sprinkles-3ff2ef.netlify.app/)
