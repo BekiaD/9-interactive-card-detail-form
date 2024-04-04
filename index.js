@@ -19,7 +19,7 @@ const expiryDateYearPlaceholder = document.querySelector('.expiry-year-placehold
 const cvc = document.querySelector('.cvc')
 const cvcPlaceholder = document.querySelector('.cvc-placeholder')
 
-const button = document.getElementById('button')
+const button = document.getElementById('btn')
 
 
 const cardDetails = [cardName, cardNumber, expiryDateMonth, expiryDateYear, cvc]
