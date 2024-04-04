@@ -22,78 +22,108 @@ const cvcPlaceholder = document.querySelector('.cvc-placeholder')
 const button = document.getElementById('button')
 
 
-// // Error messages
-// const errorName = document.getElementById('error-name')
-// const errorNumBlank = document.getElementById('error-card-num-blank')
-// const errorNumFormat = document.getElementById('error-num-format')
-// const errorNumLength = document.getElementById('error-num-length')
-// const errorDate = document.getElementById('error-date')
-// const errorCvc = document.getElementById('error-cvc')
-
-const firstInput = document.getElementById('first-input')
-const secondInput = document.getElementById('second-input')
-const thirdInput = document.getElementById('thirs-input')
-const fourthInput = document.getElementById('fourth-input')
-
-
 const cardDetails = [cardName, cardNumber, expiryDateMonth, expiryDateYear, cvc]
-const numberDetails = [cardNumber, expiryDateMonth, expiryDateYear, cvc]
+// const numberDetails = [cardNumber, expiryDateMonth, expiryDateYear, cvc]
+
+function insertAfter(referenceNode, newNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
 button.addEventListener("click", function (event) {
     event.preventDefault()
-    if (notBlank(cardDetails)) {
+    const errorClass = document.querySelectorAll('.error-msg')
+    for (let element of errorClass) {
+        element.remove()
     }
-    
 
-    wrongFormat(numberDetails)
+    if (isBlank(cardDetails)) {
+        return
+    }
 
+    if (numsCheck()) {
+        return
+    }
+    const form = document.getElementById('form')
+    form.classList.add('hideform')
+    const success = document.querySelector('#success')
+    success.style.display = 'flex'
 
 })
 
-const notBlank = function (arr) {
+const isBlank = function (arr) {
+    let wasThereBlank = false
     for (let cardinput of arr) {
-        // console.log(cardinput)
-        // console.log(cardinput.value)
-
         if (cardinput.value === '') {
-            // console.log('BLANK')
-            // return false
-            console.log(cardinput)
-
             let span = document.createElement('span')
             span.classList.add('error-msg')
             span.textContent = "Can't be blank"
             insertAfter(cardinput, span)
-
-            function insertAfter(referenceNode, newNode) {
-                referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-            }
+            wasThereBlank = true
         }
     }
-    
+    return wasThereBlank
 }
 
 
-const wrongFormat = function (arr) {
-    for (let cardinput of arr) {
-        if (!cardinput.value.match(/^\d+$/)) {
-            console.log('NOT A NUMBER')
+// const wrongFormat = function (arr) {
+//     console.log('getting called')
+//     for (let cardinput of arr) {
+//         if (!cardinput.value.match(/^\d+$/)) {
+//             let span = document.createElement('span')
+//             span.classList.add('error-msg')
+//             span.textContent = "Enter numbers only"
+//             insertAfter(cardinput, span)
+//         }
+//     }
+// }
 
-            let span = document.createElement('span')
-            span.classList.add('error-msg')
-            span.textContent = "Enter numbers only"
-            insertAfter(cardinput, span)
 
-            function insertAfter(referenceNode, newNode) {
-                referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-            }
-        }
+const numsCheck = function () {
+    let isError = false
+    if (bankNums()) {
+        isError = true
     }
+    if (twoNums(expiryDateMonth)) {
+        isError = true
+    }
+    if (twoNums(expiryDateYear)) {
+        isError = true
+    }
+    if (threeNums()) {
+        isError = true
+    }
+    return isError
+}
 
+const bankNums = function () {
+    if (cardNumber.value.length != 10) {
+        let span = document.createElement('span')
+        span.classList.add('error-msg')
+        span.textContent = "Please enter all the 19 numbers"
+        insertAfter(cardNumber, span)
+        return true
+    } return false
 }
 
 
-const enoughNums = function () {
+const twoNums = function (dateinput) {
+    if (expiryDateMonth.value > 12 || dateinput.value.length > 2) {
+        let span = document.createElement('span')
+        span.classList.add('error-msg')
+        span.textContent = "Please enter a valid date"
+        insertAfter(dateinput, span)
+        return true
+    } return false
+}
 
+const threeNums = function () {
+    if (cvc.value.length != 3) {
+        let span = document.createElement('span')
+        span.classList.add('error-msg')
+        span.textContent = "Please enter 3 numbers"
+        insertAfter(cvc, span)
+        return true
+    } return false
 }
 
 
@@ -111,11 +141,6 @@ fillIn(cardNumber, cardNumberPlaceholder, '0000 0000 0000 0000')
 fillIn(expiryDateMonth, expiryDateMonthPlaceholder, '00')
 fillIn(expiryDateYear, expiryDateYearPlaceholder, '00')
 fillIn(cvc, cvcPlaceholder, '000')
-
-
-
-
-
 
 
 
