@@ -29,9 +29,7 @@ Users should be able to:
 
 
 ### Links
-
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Live site](https://guileless-sprinkles-3ff2ef.netlify.app/)
+- [Live site](https://guileless-sprinkles-3ff2ef.netlify.app/)
 
 ## My process
 
