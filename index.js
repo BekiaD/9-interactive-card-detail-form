@@ -19,7 +19,82 @@ const expiryDateYearPlaceholder = document.querySelector('.expiry-year-placehold
 const cvc = document.querySelector('.cvc')
 const cvcPlaceholder = document.querySelector('.cvc-placeholder')
 
+const button = document.getElementById('button')
 
+
+// // Error messages
+// const errorName = document.getElementById('error-name')
+// const errorNumBlank = document.getElementById('error-card-num-blank')
+// const errorNumFormat = document.getElementById('error-num-format')
+// const errorNumLength = document.getElementById('error-num-length')
+// const errorDate = document.getElementById('error-date')
+// const errorCvc = document.getElementById('error-cvc')
+
+const firstInput = document.getElementById('first-input')
+const secondInput = document.getElementById('second-input')
+const thirdInput = document.getElementById('thirs-input')
+const fourthInput = document.getElementById('fourth-input')
+
+
+const cardDetails = [cardName, cardNumber, expiryDateMonth, expiryDateYear, cvc]
+const numberDetails = [cardNumber, expiryDateMonth, expiryDateYear, cvc]
+button.addEventListener("click", function (event) {
+    event.preventDefault()
+    if (notBlank(cardDetails)) {
+    }
+    
+
+    wrongFormat(numberDetails)
+
+
+})
+
+const notBlank = function (arr) {
+    for (let cardinput of arr) {
+        // console.log(cardinput)
+        // console.log(cardinput.value)
+
+        if (cardinput.value === '') {
+            // console.log('BLANK')
+            // return false
+            console.log(cardinput)
+
+            let span = document.createElement('span')
+            span.classList.add('error-msg')
+            span.textContent = "Can't be blank"
+            insertAfter(cardinput, span)
+
+            function insertAfter(referenceNode, newNode) {
+                referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+            }
+        }
+    }
+    
+}
+
+
+const wrongFormat = function (arr) {
+    for (let cardinput of arr) {
+        if (!cardinput.value.match(/^\d+$/)) {
+            console.log('NOT A NUMBER')
+
+            let span = document.createElement('span')
+            span.classList.add('error-msg')
+            span.textContent = "Enter numbers only"
+            insertAfter(cardinput, span)
+
+            function insertAfter(referenceNode, newNode) {
+                referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+            }
+        }
+    }
+
+}
+
+
+const enoughNums = function () {
+
+}
 
 
 const fillIn = function (item, placeholder, itemdefault) {
@@ -39,10 +114,7 @@ fillIn(cvc, cvcPlaceholder, '000')
 
 
 
-// const button = document.getElementById('button')
-// button.addEventListener("click", function (event) {
-//     event.preventDefault()
-// })
+
 
 
 
@@ -88,4 +160,3 @@ fillIn(cvc, cvcPlaceholder, '000')
 //         cvcPlaceholder.textContent = '000'
 //     }
 // })
-
